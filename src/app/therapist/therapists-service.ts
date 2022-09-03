@@ -54,6 +54,12 @@ class TherapistsService {
     }
   }
 
+  /**
+   *
+   * @param therapist {@link Therapist} professional data to create
+   * @param res {@link Response} response to return to user
+   * @returns {@link Promise<boolean>} returns a promise that resolves true for success or false in error
+   */
   async createTherapist(therapist: Therapist, res: Response): Promise<boolean> {
     const { name, method, crp, phone } = therapist;
     // TODO validate mandatory creation params
