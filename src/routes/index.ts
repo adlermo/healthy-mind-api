@@ -1,21 +1,17 @@
 import { Router } from 'express';
 
-import ProductsController from '../controllers/products-controller';
 import TherapistsController from '../app/therapist/therapists-controller';
 
 const router = Router();
 
-const products = new ProductsController();
-const users = new TherapistsController();
+const therapists = new TherapistsController();
 
-// Therapist operations endpoint
-router.patch('/therapists/:id', users.updateById);
-router.get('/therapists/:id', users.getById);
-router.get('/therapists', users.getAll);
-router.post('/therapists', users.create);
+// Therapists management endpoints
+router.patch('/therapists/:id', therapists.updateById);
+router.get('/therapists/:id', therapists.getById);
+router.get('/therapists', therapists.getAll);
+router.post('/therapists', therapists.create);
 
-// Product management endpoints
-router.get('/products', products.getAll);
-router.post('/products', products.create);
+// Patients management endpoints
 
 export default router;
