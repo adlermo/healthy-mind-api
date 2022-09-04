@@ -15,7 +15,13 @@ class Server {
   }
 
   private config() {
-    const allowedOrigins = ['http://localhost:3000', '*'];
+    const allowedOrigins = [
+      'https://healthy-mind-portal.herokuapp.com',
+      'https://adlermo.github.io',
+      'http://localhost:3000',
+      '*',
+      'https://*',
+    ];
 
     const options: cors.CorsOptions = {
       origin: allowedOrigins,
