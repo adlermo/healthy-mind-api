@@ -6,6 +6,8 @@ const router = Router();
 
 const therapists = new TherapistsController();
 
+router.post('/login', therapists.loginByEmail);
+
 // Therapists management endpoints
 router.patch('/therapists/:id', therapists.updateById);
 router.get('/therapists/:id', therapists.getById);

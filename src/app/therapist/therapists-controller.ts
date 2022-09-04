@@ -6,6 +6,14 @@ import Therapist from './therapist';
 const service = new TherapistsService();
 
 class TherapistsController {
+  public async loginByEmail(req: Request, res: Response) {
+    const { email, password } = req.body;
+
+    let result = await service.getTherapistByEmail(email, password, res);
+
+    if (result) return res.send(result);
+  }
+
   public async updateById(req: Request, res: Response) {
     const { id } = req.params;
 

@@ -6,6 +6,50 @@ import TherapistsRepository from './therapists-repository';
 let repository = new TherapistsRepository();
 
 class TherapistsService {
+  /**
+   *
+   * @param email {@link string} user email to query on database
+   * @param password {@link string} user password to validate access
+   * @param res {@link Reponse} response to return to user
+   * @returns {@link Promise<boolean>} returns a promise that resolves to
+   * userAuthenticated {@link {email: string, name: string, id_therapist: string}}
+   * in success or null in error
+   */
+  async getTherapistByEmail(
+    email: string,
+    password: string,
+    res: Response
+  ): Promise<Therapist | null> {
+    console.info(`THERAPISTS -> POST | Finding therapist by email ${email}`);
+
+    try {
+      let { rows } = await repository.getByEmail(email);
+
+      console.info(rows);
+      console.info(`THERAPISTS -> POST | Authenticating!`);
+
+      const { passw, method, crp, phone, ...userAuthenticated } = rows[0];
+
+      if (passw == password) return userAuthenticated;
+
+      throw new Error('Invalid credentials!');
+    } catch (error) {
+      console.error(`THERAPISTS -> POST | Failed authenticating!`);
+      console.debug(error);
+
+      res.status(400).send({ message: 'Falha de autenticação', error: error });
+
+      return null;
+    }
+  }
+
+  /**
+   *
+   * @param id {@link string} therapist Id to query database
+   * @param therapist {@link Therapist} professional data to update
+   * @param res {@link Response} response to return to user
+   * @returns {@link Promise<boolean>} returns a promise that resolves true for success or false in error
+   */
   async udpateTherapistById(
     id: string,
     therapist: Therapist,
@@ -37,6 +81,13 @@ class TherapistsService {
     }
   }
 
+  /**
+   *
+   * @param id {@link string} therapist Id to query database
+   * @param res {@link Response} response to return to user
+   * @returns {@link Promise<boolean>} returns a promise that resolves to
+   * therapist {@link Therapist} in success or null in error
+   */
   async getTherapistById(id: string, res: Response): Promise<Therapist | null> {
     console.info(`THERAPISTS -> GET | Finding therapist by id ${id}`);
 
@@ -46,9 +97,12 @@ class TherapistsService {
       console.info(rows);
       console.info(`THERAPISTS -> GET | Succesfully fetched!`);
 
-      return rows[0];
+      const { passw, ...therapist } = rows[0];
+
+      return therapist;
     } catch (error) {
       console.error(`THERAPISTS -> GET | Failed fetching!`);
+      res.status(400).send(error);
 
       return null;
     }

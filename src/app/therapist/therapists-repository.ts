@@ -11,6 +11,16 @@ class TherapistsRepository {
     return result;
   }
 
+  async getByEmail(email: string) {
+    const sql = `SELECT * FROM therapists WHERE email = $1;`;
+    const client = await pool.connect();
+
+    let result = await client.query(sql, [email]);
+    client.release();
+
+    return result;
+  }
+
   async getById(id: string) {
     const sql = `SELECT * FROM therapists WHERE id_therapist = $1;`;
     const client = await pool.connect();
