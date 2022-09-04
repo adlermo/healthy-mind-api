@@ -15,7 +15,7 @@ class Server {
   }
 
   private config() {
-    const allowedOrigins = ['http://localhost:3000'];
+    const allowedOrigins = ['http://localhost:3000', '*'];
 
     const options: cors.CorsOptions = {
       origin: allowedOrigins,
