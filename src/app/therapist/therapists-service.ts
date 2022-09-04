@@ -30,7 +30,10 @@ class TherapistsService {
 
       const { passw, method, crp, phone, ...userAuthenticated } = rows[0];
 
-      if (passw == password) return userAuthenticated;
+      if (passw == password) {
+        console.info(`THERAPISTS -> POST | Authenticated!`);
+        return userAuthenticated;
+      }
 
       throw new Error('Invalid credentials!');
     } catch (error) {
