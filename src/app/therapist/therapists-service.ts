@@ -61,13 +61,13 @@ class TherapistsService {
    * @returns {@link Promise<boolean>} returns a promise that resolves true for success or false in error
    */
   async createTherapist(therapist: Therapist, res: Response): Promise<boolean> {
-    const { name, method, crp, phone } = therapist;
+    const { name, email, password, method, crp, phone } = therapist;
     // TODO validate mandatory creation params
 
     console.info(`THERAPISTS -> POST | Creating therapist ${name}`);
 
     try {
-      const values = [name, method, crp, phone];
+      const values = [name, email, password, method, crp, phone];
 
       let result = await repository.create(values);
 

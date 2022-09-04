@@ -1,7 +1,9 @@
 export default interface Therapist {
   id_therapist?: number;
   name: string;
-  method: string;
-  crp: string;
-  phone: string;
+  email: string;
+  password: string;
+  method?: string;
+  crp?: string;
+  phone?: string;
 }

@@ -4,10 +4,12 @@ create sequence therapists_sequence start 1 increment 1;
 
 create table therapists (
     id_therapist serial primary key,
-	name varchar(120) not null,
-    method varchar(40) not null,
-    crp varchar(12) not null,
-    phone varchar(11) not null
+	name varchar not null,
+    email varchar not null,
+    passw varchar not null,
+    method varchar,
+    crp varchar(12),
+    phone varchar(11)
 );
 
 create sequence patients_sequence start 1 increment 1;
@@ -16,9 +18,9 @@ create type _gender as enum ('masculino', 'feminino', 'prefiro não responder');
 
 create table patients (
 	id_patient serial primary key,
-    email varchar(120) unique not null,
-    name varchar(150),
-    cpf varchar(11),
+    email varchar unique not null,
+    name varchar not null,
+    cpf varchar(11) not null,
     gender _gender,
     birth date
 );
@@ -32,8 +34,8 @@ create table sessions (
     therapist_id integer references therapists (id_therapist) not null,
     scheduled_time date not null,
     status _status not null,
-    subject varchar(90) not null,
-    scheduling_type varchar(90),
+    subject varchar not null,
+    scheduling_type varchar,
     duration_time time not null,
     private_session boolean not null
 );
