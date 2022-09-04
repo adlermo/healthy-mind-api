@@ -1,8 +1,8 @@
 {
-  "name": "back-to-react-crud",
-  "version": "0.0.1",
+  "name": "healthy-mind-api",
+  "version": "1.0.0-alpha",
   "main": "dist/src/app.js",
-  "repository": "https://github.com/adlermo/back-to-react-crud.git",
+  "repository": "https://github.com/adlermo/healthy-mind-api.git",
   "author": "adlermo <adlerorteney@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -21,6 +21,5 @@
     "dotenv": "^16.0.1",
     "typescript": "^4.7.4"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

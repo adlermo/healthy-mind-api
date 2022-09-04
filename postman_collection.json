@@ -7,53 +7,35 @@
 	},
 	"item": [
 		{
-			"name": "products (getAll)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{host}}/products?user_id=5",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"products"
-					],
-					"query": [
-						{
-							"key": "user_id",
-							"value": "5"
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"adler@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login"
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "products (create)",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"user_id\": 5,\r\n    \"name\": \"MacBook Air\",\r\n    \"description\": \"Apple Notebook - A new MacBook Air\",\r\n    \"price\": 12238.74\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{host}}/products",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"products"
-					]
-				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "therapists (getAll)",
@@ -168,6 +150,11 @@
 		{
 			"key": "host",
 			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "deployed",
+			"value": "https://healthy-mind-api.herokuapp.com",
 			"type": "string"
 		}
 	]
