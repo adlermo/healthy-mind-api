@@ -18,11 +18,11 @@ Existem duas formas de utilizar o projeto apresentado:
 
 1. Executar localmente:
         
-    - Em um terminal execute o comando ```git clone ```
+    - Em um terminal execute o comando ```git clone https://github.com/adlermo/healthy-mind-api.git```
         
-    - Após entrar no projeto ``` cd  ```, cole o comando de sua preferência ```npm i``` ou ```yarn install```
+    - Após entrar no projeto ```cd healthy-mind-api```, cole o comando de sua preferência ```npm i``` ou ```yarn install```
         
-    - É necessário criar um arquivo _.env_ (modelo abaixo)  com as credênciais de acesso a um banco Postgres, antes de executar o comando de inicialização ```yarn start``` ou ```npm start```.
+    - É necessário criar um arquivo _.env_ (modelo abaixo) com as credênciais de acesso a um banco Postgres, antes de executar o comando de inicialização ```yarn start``` ou ```npm start```.
 
 ```
 USER=anyuser
