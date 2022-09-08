@@ -2,7 +2,7 @@
 
 Deve ser criada uma API que permita as seguintes operações em uma base de dados:
 
- - [ ] cadastro de profissionais e pacientes,
+ - [x] cadastro de profissionais e pacientes,
  - [ ] listagem de pacientes por profissional,
  - [ ] atualização dos pacientes,
  - [ ] deleção de pacientes,
